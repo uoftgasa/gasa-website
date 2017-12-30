@@ -203,6 +203,21 @@
             </div>
         </div>
     </section>
+
+    <section class="bg-primary" id="events">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Upcoming events</h2>
+                    <hr class="light">
+                    <p>
+                        <ul id="events-upcoming"></ul>
+                        <ul id="events-past" style="display: none"></ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Members modal -->
     <div id="membersModal" class="modal fade" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1">
@@ -352,6 +367,16 @@
     
     <!-- Theme JavaScript -->
     <script src="js/creative.js"></script>
+
+    <!-- Google Calendar API -->
+    <script type="text/javascript" src="js/googlecalendar.js"></script>
+    <script type="text/javascript">
+        formatGoogleCalendar.init({
+            upcomingTopN: 10,
+            upcomingHeading: '',
+            pastHeading: '',
+        });
+    </script>
 
     <!-- Google Maps API -->
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?sensor=false&#038;ver=4.0.1'></script>
