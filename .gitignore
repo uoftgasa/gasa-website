@@ -3,3 +3,6 @@ bower_components
 
 # OS junk files
 *.DS_Store
+
+# API keys (stored as JavaScript object named "keys")
+js/config.js

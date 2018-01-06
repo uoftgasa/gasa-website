@@ -401,7 +401,7 @@ window.formatGoogleCalendar = function () {
     return {
         init: function init(settingsOverride) {
             var settings = {
-                calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/5a21ifbvfvb55shghikhvv32e8@group.calendar.google.com/events?key=AIzaSyCdUWSo9roD-CIoiPPWvKTE-WWmtbq57eo',
+                calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/5a21ifbvfvb55shghikhvv32e8@group.calendar.google.com/events?key=' + keys.GOOGLE_API_KEY,
                 past: true,
                 upcoming: true,
                 sameDayTimes: true,
@@ -422,3 +422,8 @@ window.formatGoogleCalendar = function () {
         }
     };
 }();
+
+// Display calendar with custom settings
+formatGoogleCalendar.init({
+    upcomingTopN: 3,
+});
