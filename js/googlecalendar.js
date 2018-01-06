@@ -164,12 +164,18 @@ window.formatGoogleCalendar = function () {
             moreDaysEvent = true,
             isAllDayEvent = isAllDay(dateStart, dateEnd);
 
-        if (typeof event.end.date !== 'undefined') {
-            dateEnd = subtractOneDay(dateEnd);
-        }
+        // JL (Jan 5, 2018): not sure why this is here
+        // if (typeof event.end.date !== 'undefined') {
+        //     dateEnd = subtractOneDay(dateEnd);
+        // }
 
         if (isSameDay(dateStart, dateEnd)) {
             moreDaysEvent = false;
+        }
+
+        // JL (Jan 5, 2018): added the following
+        if (moreDaysEvent || isAllDayEvent) {
+            dateStart = addOneDay(dateStart);
         }
 
         var dateFormatted = getFormattedDate(dateStart, dateEnd, dayNames, moreDaysEvent, isAllDayEvent),
