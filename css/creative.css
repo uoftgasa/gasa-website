@@ -53,6 +53,9 @@ p {
   background-color: #222222;
   color: white;
 }
+.bg-white {
+  background-color: #FFFFFF;
+}
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -469,6 +472,21 @@ p.copyright {
   width: 50%;
   margin: 0 auto 30px auto;
   border: 4px solid white;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+.fullwidth {
+  width: 100%;
+}
+.gasa-photo {
+  /*background-image: url('../img/gasa_nov2017.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;*/
+  position: absolute;
+  width: 100%;
 }
 #map {
   width: 100%;
