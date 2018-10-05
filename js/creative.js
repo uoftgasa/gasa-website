@@ -63,7 +63,7 @@
     
     // Load GASA members list
     $(function(){
-        $('#members-list').load("members17_18.html");
+        $('#members-list').load("members18_19.html");
     });
     
     // Accordion panel tweak
