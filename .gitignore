@@ -4,6 +4,7 @@ bower_components
 # Subdirectories
 astrotours/
 backups/
+droppings/*/
 
 # Server files
 .bash_history
