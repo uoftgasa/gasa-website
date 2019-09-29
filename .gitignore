@@ -1,8 +1,14 @@
 node_modules
 bower_components
 
+# Subdirectories
+astrotours/
+backups/
+
+# Server files
+.bash_history
+.htaccess
+.procmailrc
+
 # OS junk files	
 *.DS_Store
-
-# API keys (stored as JavaScript object named "keys")	
-js/config.js
