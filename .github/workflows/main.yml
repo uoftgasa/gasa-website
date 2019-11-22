@@ -14,5 +14,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-                whoami
-                ssh pull
+                git pull
