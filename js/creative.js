@@ -1,4 +1,9 @@
-(function($) {
+/*!
+    * Start Bootstrap - Creative v6.0.3 (https://startbootstrap.com/themes/creative)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
+    */
+    (function($) {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
@@ -56,7 +61,7 @@
   });
   // Load GASA members list
   $(function () {
-    $('#members-list').load("members19_20.html");
+    $('#members-list').load("members20_21.html");
   });
 
   // Accordion panel tweak
