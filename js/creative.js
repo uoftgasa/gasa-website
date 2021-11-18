@@ -61,7 +61,7 @@
   });
   // Load GASA members list
   $(function () {
-    $('#members-list').load("members20_21.html");
+    $('#members-list').load("members21_22.html");
   });
 
   // Accordion panel tweak
