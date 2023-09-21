@@ -9,13 +9,27 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+    - name: Build Bootstrap CSS
+      run: |
+        npm i bootstrap autoprefixer upath sass shelljs
+    - name: Upload build
+      uses: actions/upload-artifact@master
+      with:
+        name: gasa
+        path: .
+
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.4  
+      uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-                git pull
+                nohup bash -x ./gasa-artifact.sh </dev/null &>/dev/null &
