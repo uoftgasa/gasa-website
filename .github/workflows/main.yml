@@ -15,6 +15,10 @@ jobs:
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
+    - name: Clean-up
+      run: |
+           rm -rf .github
+           rm -rf node_modules
     - name: Upload build
       uses: actions/upload-artifact@master
       with:
