@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
+    - name: Build Bootstrap CSS
+      run: |
+        npm i bootstrap autoprefixer upath sass shelljs
+        node src/build-scss.js
     - name: Clean-up
       run: |
            rm -rf .github
