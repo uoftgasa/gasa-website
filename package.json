@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "bootstrap": "^5.3.8",
+    "sass": "^1.93.3",
+    "shelljs": "^0.10.0",
+    "upath": "^2.0.1"
+  }
+}

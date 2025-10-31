@@ -12,19 +12,31 @@ const destPath = upath.resolve(upath.dirname(__filename), '../css/styles.css');
 
 module.exports = function renderSCSS() {
     
-    const results = sass.renderSync({
-        data: entryPoint,
-        includePaths: [
+    // Use the modern Dart Sass JS API and compile the real stylesheet file so
+    // `@use` module resolution (including packages like "bootstrap") works.
+    const entryFile = upath.resolve(upath.dirname(__filename), stylesPath);
+    const results = sass.compile(entryFile, {
+        loadPaths: [
             upath.resolve(upath.dirname(__filename), '../node_modules')
         ],
-      });
+        style: 'expanded',
+        quietDeps: true,
+    });
 
     const destPathDirname = upath.dirname(destPath);
     if (!sh.test('-e', destPathDirname)) {
         sh.mkdir('-p', destPathDirname);
     }
 
-    postcss([ autoprefixer ]).process(results.css, {from: 'styles.css', to: 'styles.css'}).then(result => {
+    // sass.compile returns an object with .css string. Prepend the banner
+    // comment to match previous behavior.
+    const banner = `/*!
+* Start Bootstrap - ${packageJSON.title} v${packageJSON.version} (${packageJSON.homepage})
+* Copyright 2013-${new Date().getFullYear()} ${packageJSON.author}
+* Licensed under ${packageJSON.license} (https://github.com/StartBootstrap/${packageJSON.name}/blob/master/LICENSE)
+*/\n`;
+    const cssOutput = banner + results.css;
+    postcss([ autoprefixer ]).process(cssOutput, {from: 'styles.css', to: 'styles.css'}).then(result => {
         result.warnings().forEach(warn => {
             console.warn(warn.toString())
         })

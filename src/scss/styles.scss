@@ -2,20 +2,26 @@
 // Styles
 // 
 
-// Import custom variables and override default Bootstrap variables
-@import "./variables.scss";
+// Use the module system. Load only our color definitions first so we can
+// configure Bootstrap with the project's $primary, then load the rest of our
+// variables and partials.
+@use "./variables/colors" as *;
 
-// Import Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+// Load Bootstrap configured with the project's primary color
+@use "bootstrap/scss/bootstrap" with (
+    $primary: $primary
+);
 
-// Import custom styles
-@import "./global.scss";
+// Now load our variables index (which can alias Bootstrap names) and the rest
+// of our partials.
+@use "./variables" as *;
 
-// Components
-@import "./components/buttons.scss";
-@import "./components/dividers.scss";
-@import "./components/navbar.scss";
+// Custom styles and components
+@use "./global" as *;
+@use "./components/buttons" as *;
+@use "./components/dividers" as *;
+@use "./components/navbar" as *;
 
 // Sections
-@import "./sections/masthead.scss";
-@import "./sections/portfolio.scss";
+@use "./sections/masthead" as *;
+@use "./sections/portfolio" as *;

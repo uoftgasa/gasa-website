@@ -1,6 +1,7 @@
 // 
 // Global
 // 
+@use "./variables" as vars;
 
 // Scroll padding for all scroll targets on page used with
 // native CSS smooth scrolling
@@ -9,7 +10,7 @@
 
 html {
     height: 100%;
-    scroll-padding-top: calc(#{$navbar-height} - 1px);
+    scroll-padding-top: calc(#{vars.$navbar-height} - 1px);
 }
 
 body {
@@ -24,5 +25,6 @@ body {
 
 // Custom utilities for this theme
 .text-white-75 {
-    color: fade-out($white, 0.25) !important;
+    // fade-out($white, 0.25) -> rgba(255,255,255,0.75)
+    color: rgba(255, 255, 255, 0.75) !important;
 }
