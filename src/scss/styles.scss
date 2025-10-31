@@ -2,19 +2,21 @@
 // Styles
 // 
 
-// Use the module system. Load only our color definitions first so we can
-// configure Bootstrap with the project's $primary, then load the rest of our
-// variables and partials.
-@use "./variables/colors" as *;
+// Use the module system. Load our variables module so it defines the project's
+// $primary and other overrides, then configure Bootstrap with that $primary.
+@use "./variables" as vars;
+
+// Expose project-level primary for configuring Bootstrap
+$primary: vars.$primary !default;
+
+// Expose project-level link color for configuring Bootstrap
+$link-color: vars.$link-color !default;
 
 // Load Bootstrap configured with the project's primary color
-@use "bootstrap/scss/bootstrap" with (
-    $primary: $primary
-);
-
-// Now load our variables index (which can alias Bootstrap names) and the rest
-// of our partials.
-@use "./variables" as *;
+// @use "bootstrap/scss/bootstrap" with (
+// 	$primary: $primary,
+// 	$link-color: $link-color
+// );
 
 // Custom styles and components
 @use "./global" as *;

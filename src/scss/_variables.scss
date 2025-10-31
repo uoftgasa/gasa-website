@@ -10,9 +10,12 @@
 // when they `@use "./variables" as *;`. We `@use` bootstrap here but since
 // it's already configured in the top-level stylesheet, this will not reconfigure
 // the module.
-@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "bootstrap/scss/bootstrap" as bootstrap with (
+	$primary: $primary,
+	$link-color: $link-color
+);
 
-$primary: bootstrap.$primary !default;
+// $primary: bootstrap.$primary !default;
 $white: bootstrap.$white !default;
 $black: bootstrap.$black !default;
 $gray-100: bootstrap.$gray-100 !default;
