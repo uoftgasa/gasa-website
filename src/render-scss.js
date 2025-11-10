@@ -12,16 +12,24 @@ const destPath = upath.resolve(upath.dirname(__filename), '../css/styles.css');
 
 module.exports = function renderSCSS() {
     
-    // Use the modern Dart Sass JS API and compile the real stylesheet file so
-    // `@use` module resolution (including packages like "bootstrap") works.
-    const entryFile = upath.resolve(upath.dirname(__filename), stylesPath);
-    const results = sass.compile(entryFile, {
+    const sass = require('sass');
+    const fs = require('fs');
+    const upath = require('upath');
+
+    const results = sass.compile(
+    upath.resolve(__dirname, '../src/scss/styles.scss'), // path to entry SCSS
+    {
         loadPaths: [
-            upath.resolve(upath.dirname(__filename), '../node_modules')
+        upath.resolve(__dirname, '../node_modules') // includePaths replacement
         ],
-        style: 'expanded',
-        quietDeps: true,
-    });
+        quietDeps: true // hide warnings from node_modules
+    }
+    );
+
+    fs.writeFileSync(
+    upath.resolve(__dirname, '../css/styles.css'),
+    results.css
+    );
 
     const destPathDirname = upath.dirname(destPath);
     if (!sh.test('-e', destPathDirname)) {
@@ -50,5 +58,5 @@ const entryPoint = `/*!
 * Copyright 2013-${new Date().getFullYear()} ${packageJSON.author}
 * Licensed under ${packageJSON.license} (https://github.com/StartBootstrap/${packageJSON.name}/blob/master/LICENSE)
 */
-@import "${stylesPath}"
+@use "${stylesPath}"
 `

@@ -2,7 +2,9 @@
 // Portfolio
 // 
 
-@use "../variables" as vars;
+@use "sass:color";
+@use "bootstrap/scss/bootstrap" as *;
+@use '../variables/colors';
 
 #portfolio {
     .container-fluid {
@@ -27,13 +29,13 @@
                 text-align: center;
                 opacity: 0;
 
-                color: vars.$white;
-                background: rgba(vars.$primary, 0.9);
+                color: $white;
+                background: color.adjust(colors.$primary, $alpha: -0.1);
                 transition: opacity 0.25s ease;
                 text-align: center;
 
                 .project-category {
-                    font-family: vars.$font-family-sans-serif;
+                    font-family: $font-family-sans-serif;
                     font-size: 0.85rem;
                     font-weight: 600;
                     text-transform: uppercase;

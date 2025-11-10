@@ -2,24 +2,16 @@
 // Styles
 // 
 
-// Use the module system. Load our variables module so it defines the project's
-// $primary and other overrides, then configure Bootstrap with that $primary.
-@use "./variables" as vars;
+// Import custom variables and override default Bootstrap variables
+@use "./variables" as *;
 
-// Expose project-level primary for configuring Bootstrap
-$primary: vars.$primary !default;
+// Import Bootstrap
+@use "bootstrap/scss/bootstrap" as *;
 
-// Expose project-level link color for configuring Bootstrap
-$link-color: vars.$link-color !default;
-
-// Load Bootstrap configured with the project's primary color
-// @use "bootstrap/scss/bootstrap" with (
-// 	$primary: $primary,
-// 	$link-color: $link-color
-// );
-
-// Custom styles and components
+// Import custom styles
 @use "./global" as *;
+
+// Components
 @use "./components/buttons" as *;
 @use "./components/dividers" as *;
 @use "./components/navbar" as *;
@@ -27,3 +19,7 @@ $link-color: vars.$link-color !default;
 // Sections
 @use "./sections/masthead" as *;
 @use "./sections/portfolio" as *;
+
+@use "./variables/colors" as *;
+@use "./variables/spacing" as *;
+@use "./variables/typography" as *;

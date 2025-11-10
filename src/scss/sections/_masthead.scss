@@ -3,7 +3,7 @@
 // 
 
 @use "bootstrap/scss/bootstrap" as *;
-@use "../variables" as vars;
+@use '../variables/spacing';
 
 header.masthead {
     height: 100vh;
@@ -22,7 +22,7 @@ header.masthead {
     @include media-breakpoint-up(lg) {
         height: 100vh;
         min-height: 40rem;
-    padding-top: vars.$navbar-height;
+        padding-top: spacing.$navbar-height;
         padding-bottom: 0;
 
         p {

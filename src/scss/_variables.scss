@@ -2,30 +2,6 @@
 // Variables
 // 
 
-@forward './variables/colors';
-@forward './variables/spacing';
-@forward './variables/typography';
-
-// Alias commonly used Bootstrap variables so our partials can use them unprefixed
-// when they `@use "./variables" as *;`. We `@use` bootstrap here but since
-// it's already configured in the top-level stylesheet, this will not reconfigure
-// the module.
-@use "bootstrap/scss/bootstrap" as bootstrap with (
-	$primary: $primary,
-	$link-color: $link-color
-);
-
-// $primary: bootstrap.$primary !default;
-$white: bootstrap.$white !default;
-$black: bootstrap.$black !default;
-$gray-100: bootstrap.$gray-100 !default;
-$gray-200: bootstrap.$gray-200 !default;
-$gray-300: bootstrap.$gray-300 !default;
-$gray-400: bootstrap.$gray-400 !default;
-$gray-500: bootstrap.$gray-500 !default;
-$gray-600: bootstrap.$gray-600 !default;
-$gray-700: bootstrap.$gray-700 !default;
-$gray-800: bootstrap.$gray-800 !default;
-$gray-900: bootstrap.$gray-900 !default;
-$box-shadow: bootstrap.$box-shadow !default;
-$font-weight-bold: bootstrap.$font-weight-bold !default;
+@use './variables/colors' as *;
+@use './variables/spacing' as *;
+@use './variables/typography' as *;
