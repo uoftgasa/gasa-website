@@ -12,12 +12,24 @@ const destPath = upath.resolve(upath.dirname(__filename), '../css/styles.css');
 
 module.exports = function renderSCSS() {
     
-    const results = sass.renderSync({
-        data: entryPoint,
-        includePaths: [
-            upath.resolve(upath.dirname(__filename), '../node_modules')
+    const sass = require('sass');
+    const fs = require('fs');
+    const upath = require('upath');
+
+    const results = sass.compile(
+    upath.resolve(__dirname, '../src/scss/styles.scss'), // path to entry SCSS
+    {
+        loadPaths: [
+        upath.resolve(__dirname, '../node_modules') // includePaths replacement
         ],
-      });
+        quietDeps: true // hide warnings from node_modules
+    }
+    );
+
+    fs.writeFileSync(
+    upath.resolve(__dirname, '../css/styles.css'),
+    results.css
+    );
 
     const destPathDirname = upath.dirname(destPath);
     if (!sh.test('-e', destPathDirname)) {
@@ -38,5 +50,5 @@ const entryPoint = `/*!
 * Copyright 2013-${new Date().getFullYear()} ${packageJSON.author}
 * Licensed under ${packageJSON.license} (https://github.com/StartBootstrap/${packageJSON.name}/blob/master/LICENSE)
 */
-@import "${stylesPath}"
+@use "${stylesPath}"
 `

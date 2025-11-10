@@ -1,6 +1,10 @@
 // 
 // Navbar
 // 
+@use "sass:color";
+@use "bootstrap/scss/bootstrap" as *;
+@use '../variables/colors' as colors;
+@use '../variables/typography' as typography;
 
 #mainNav {
     box-shadow: $box-shadow;
@@ -8,7 +12,7 @@
     transition: background-color 0.2s ease;
 
     .navbar-brand {
-        font-family: $font-family-sans-serif;
+        font-family: typography.$font-family-sans-serif;
         font-weight: $font-weight-bold;
         color: $gray-900;
     }
@@ -17,18 +21,18 @@
         .nav-item {
             .nav-link {
                 color: $gray-600;
-                font-family: $font-family-sans-serif;
+                font-family: typography.$font-family-sans-serif;
                 font-weight: $font-weight-bold;
                 font-size: 0.9rem;
                 padding: 0.75rem 0;
 
                 &:hover,
                 &:active {
-                    color: $primary;
+                    color: colors.$primary;
                 }
 
                 &.active {
-                    color: $primary !important;
+                    color: colors.$primary !important;
                 }
             }
         }
@@ -40,7 +44,7 @@
         background-color: transparent;
 
         .navbar-brand {
-            color: fade-out($white, 0.3);
+            color: color.adjust($white, $alpha: -0.3);
 
             &:hover {
                 color: $white;
@@ -50,7 +54,7 @@
         .navbar-nav {
             .nav-item {
                 .nav-link {
-                    color: fade-out($white, 0.3);
+                    color: color.adjust($white, $alpha: -0.3);
                     padding: 0 1rem;
 
                     &:hover {
@@ -75,7 +79,7 @@
                 color: $gray-900;
 
                 &:hover {
-                    color: $primary;
+                    color: colors.$primary;
                 }
             }
 
@@ -85,7 +89,7 @@
                         color: $gray-900;
 
                         &:hover {
-                            color: $primary;
+                            color: colors.$primary;
                         }
                     }
                 }

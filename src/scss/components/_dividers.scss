@@ -2,11 +2,14 @@
 // Dividers
 // 
 
+@use "bootstrap/scss/bootstrap" as *;
+@use '../variables/colors';
+
 hr.divider {
     height: 0.2rem;
     max-width: 3.25rem;
     margin: 1.5rem auto;
-    background-color: $primary;
+    background-color: colors.$secondary-blue;
     opacity: 1;
 }
 
