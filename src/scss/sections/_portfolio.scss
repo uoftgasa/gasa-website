@@ -2,6 +2,10 @@
 // Portfolio
 // 
 
+@use "sass:color";
+@use "bootstrap/scss/bootstrap" as *;
+@use '../variables/colors';
+
 #portfolio {
     .container-fluid {
         max-width: 1920px;
@@ -26,7 +30,7 @@
                 opacity: 0;
 
                 color: $white;
-                background: fade-out($primary, 0.1);
+                background: color.adjust(colors.$primary, $alpha: -0.1);
                 transition: opacity 0.25s ease;
                 text-align: center;
 

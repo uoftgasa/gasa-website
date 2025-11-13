@@ -3,19 +3,23 @@
 // 
 
 // Import custom variables and override default Bootstrap variables
-@import "./variables.scss";
+@use "./variables" as *;
 
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+@use "bootstrap/scss/bootstrap" as *;
 
 // Import custom styles
-@import "./global.scss";
+@use "./global" as *;
 
 // Components
-@import "./components/buttons.scss";
-@import "./components/dividers.scss";
-@import "./components/navbar.scss";
+@use "./components/buttons" as *;
+@use "./components/dividers" as *;
+@use "./components/navbar" as *;
 
 // Sections
-@import "./sections/masthead.scss";
-@import "./sections/portfolio.scss";
+@use "./sections/masthead" as *;
+@use "./sections/portfolio" as *;
+
+@use "./variables/colors" as *;
+@use "./variables/spacing" as *;
+@use "./variables/typography" as *;
