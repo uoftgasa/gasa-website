@@ -4,6 +4,8 @@
 
 //- Custom XL button styling
 
+@use "../variables" as vars;
+
 .btn-xl {
     padding: 1.25rem 2.25rem;
     font-size: 0.85rem;

@@ -2,6 +2,6 @@
 // Variables
 // 
 
-@import './variables/colors';
-@import './variables/spacing';
-@import './variables/typography';
+@use './variables/colors' as *;
+@use './variables/spacing' as *;
+@use './variables/typography' as *;
