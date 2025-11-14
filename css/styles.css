@@ -12167,6 +12167,7 @@ header.masthead h1 {
 
 #portfolio .container-fluid {
   max-width: 1920px;
+  max-height: 1080px;
 }
 #portfolio .container-fluid .portfolio-box {
   position: relative;
