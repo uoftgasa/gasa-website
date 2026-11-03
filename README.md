@@ -45,7 +45,7 @@ Each year a new members list needs to be added. For the steps to do this, see [m
 
 ## Package and deploy
 
-**Push or merge to `master`.** Changes go live about 5 minutes later. Other branches and pull requests are not deployed. The [workflow](.github/workflows/main.yml):
+**Push or merge to `master`.** Changes go live about 5 minutes later. Other branches and pull requests are not deployed.
 
 Notes:
 
